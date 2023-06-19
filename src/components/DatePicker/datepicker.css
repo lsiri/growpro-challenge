@@ -1,0 +1,8 @@
+.basic-datepicker {
+    border-radius: 10px;
+    background-color: lightgray;
+    color:black;
+    min-height: 50px;
+    min-width: 220px;
+    font-size: 18px;
+}

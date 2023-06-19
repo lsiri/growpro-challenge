@@ -2,55 +2,55 @@
     "data": [
         {
             "id": "el1",
-            "nombre": "Bicicleta eléctrica 1",
+            "nombre": "Bicicleta EL10",
             "img": "/electrica.jpg",
             "type": "electrica"
         },
         {
             "id": "el2",
-            "nombre": "Bicicleta eléctrica 2",
+            "nombre": "Bicicleta EL20",
             "img": "/electrica.jpg",
             "type": "electrica"
         },
         {
             "id": "el3",
-            "nombre": "Bicicleta eléctrica 3",
+            "nombre": "Bicicleta EL30",
             "img": "/electrica.jpg",
             "type": "electrica"
         },
         {
             "id": "nor1",
-            "nombre": "Bicicleta normal 1",
+            "nombre": "Bicicleta NOR10",
             "img": "/clasica.jpg",
             "type": "normal"
         },
         {
             "id": "nor2",
-            "nombre": "Bicicleta normal 2",
+            "nombre": "Bicicleta NOR20",
             "img": "/clasica.jpg",
             "type": "normal"
         },
         {
             "id": "nor3",
-            "nombre": "Bicicleta normal 3",
+            "nombre": "Bicicleta NOR30",
             "img": "/clasica.jpg",
             "type": "normal"
         },
         {
             "id": "ant1",
-            "nombre": "Bicicleta antigua 1",
+            "nombre": "Bicicleta AN10",
             "img": "/antigua.jpg",
             "type": "antigua"
         },
         {
             "id": "ant2",
-            "nombre": "Bicicleta antigua 2",
+            "nombre": "Bicicleta AN20",
             "img": "/antigua.jpg",
             "type": "antigua"
         },
         {
             "id": "ant3",
-            "nombre": "Bicicleta antigua 3",
+            "nombre": "Bicicleta AN30",
             "img": "/antigua.jpg",
             "type": "antigua"
         }

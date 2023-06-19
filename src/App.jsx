@@ -1,6 +1,6 @@
 import './App.css'
 import BicycleList from './pages/BicycleList'
-import {basePrice} from 'src/utils/pricingManager';
+import {getBasePrice} from 'src/utils/pricingManager';
 function App() {
 
   const date = new Date();
@@ -11,7 +11,7 @@ function App() {
         <h1>Alquiler de bicicletas</h1>
         <h2>¡Tenemos las mejores bicicletas en alquiler!</h2>
         <h3>Nuestra tarifa de alquiler para el día de hoy ({date.toLocaleDateString()}) 
-        es de {basePrice()} USD por dia + el valor agregado de la bici seleccionada. </h3>
+        es de {getBasePrice()} USD por dia + el valor agregado de la bici seleccionada. </h3>
       </header>
       <section>
         <div>

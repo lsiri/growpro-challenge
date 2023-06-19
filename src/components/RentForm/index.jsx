@@ -1,24 +1,31 @@
-import { Box, TextField, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import { Box, Button, TextField, Typography } from "@mui/material";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import DatePicker from "../DatePicker";
-import DatePickerMui from "../DatePicker";
+import CustomDatePicker from "../DatePicker";
+import BasicModal from "../Modal";
 
 export default function RentForm() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors }
-  } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  }; // your form submit function which will invoke after successful validation
+    const [openModal, setOpenModal] = useState(false);
+    const [formData, setFormData] = useState({});
+    const [startDate, setStartDate] = useState(new Date());
 
-  console.log(watch("example")); // you can watch individual input by pass the name of the input
+    const {
+        register,
+        getValues,
+    } = useForm();
 
-  const fields = [
+    const onSubmit = (e) => {
+        e.preventDefault()
+        const data = getValues();
+
+        data.fechaInicio = startDate;
+        // aqui podríamos realizar las validaciones que consideremos necesarias.
+        setOpenModal(true);
+        setFormData(data);
+    }; 
+
+    const fields = [
     {
         id: "nombre",
         fieldName: "Nombre",
@@ -29,70 +36,74 @@ export default function RentForm() {
         id: "email",
         fieldName: "Email",
         isRequired: true,
-        type:"string",
-        vaidateWith: "regex"
+        type:"email",
+        placeholder:"lucas@bestbike.com"
     },
     {
         id: "telefono",
         fieldName: "Telefono",
         isRequired: true,
-        type:"string",
+        type:"number",
     },
     {
         id: "fechaInicio",
         fieldName: "Fecha de inicio del alquiler",
         isRequired: true,
         type:"datepicker",
+        placeholder:"DD/MM/YYYY"
     },
     {
         id: "diasReserva",
         fieldName: "Dias a reservar",
         isRequired: true,
         type:"number",
+        placeholder: "2",
+        max:"365"
     },
     {
         id: "observaciones",
         fieldName: "Observaciones adicionales",
         isRequired: false,
         type:"string",
+        placeholder: "Pasaré por la tarde..."
     }]
-    // nombre del usuario, 
-    // email del usuario,
-    // teléfono del usuario, 
-    // fecha de inicio del alquiler, 
-    // duración en días del alquiler
 
-    useEffect(() => {
-        fields.map((field) => register(field.id, {required: field.isRequired}));
-    },[])
+    const generateField = (field) => {
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {/* register your input into the hook by invoking the "register" function */}
-      {/* <input defaultValue="email@" {...register("example")} /> */}
-      {/* errors will return when field validation fails  */}
-      {/* {errors.exampleRequired && <p>This field is required</p>} */}
+        if(field.type === "datepicker") {
+            return <CustomDatePicker startDate={startDate} setStartDate={setStartDate}/>
+        }
 
-        <Box sx={{display: "flex", flexDirection:"column"}}>
-            {fields.map((field) => {
-            return <Box sx={{paddingBottom:"20px"}}>
-                <Typography>{field.fieldName}</Typography>
-                    <TextField
-                        required={field.isRequired}
-                        sx={{
-                            ".MuiInputBase-input": {
-                                borderRadius: "10px",
-                                backgroundColor:"lightgray"
-                            },
-                        }}
-                    />
-            </Box>
-            })}
-        </Box>
+        return <TextField
+            {...register(field.id, {required: field.isRequired})}
+            id={field.id}
+            name={field.id}
+            type={field.type}
+            required={field.isRequired}
+            placeholder={field.placeholder}
+            sx={{
+                ".MuiInputBase-input": {
+                    borderRadius: "10px",
+                    backgroundColor:"lightgray",
+                },
+            }}
+        />
+    }
 
-        <DatePickerMui />
 
-      <input type="submit" />
-    </form>
-  );
-}
+    return (<>
+            <form onSubmit={onSubmit}>
+                <Box sx={{display: "flex", flexDirection:"column"}}>
+                    {fields.map((field) => {
+                    return <Box key={field.id} sx={{paddingBottom:"20px"}}>
+                        <Typography>{field.fieldName} {field.isRequired ? "*" : ""}</Typography>
+                            {generateField(field)}
+                    </Box>
+                    })}
+                </Box>
+                <Button type="submit" variant="outlined">Enviar</Button>
+            </form>
+            <BasicModal open={openModal} handleClose={() => setOpenModal(false)} formData={formData}/>
+        </>
+        );
+    }

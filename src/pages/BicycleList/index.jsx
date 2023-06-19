@@ -33,7 +33,10 @@ export default function BicycleList() {
     }
 
     return <>
-        <div style={{display: 'grid', gridTemplateColumns: "repeat(3, 1fr)"}}>
+        <div style={{
+            display: 'grid',
+            gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+        }}>
             { lista.map((bici) => (<ItemLista key={bici.id} {...bici} />)) }
         </div>
     </>

@@ -26,7 +26,7 @@ function App() {
         </div>
       </section>
 
-      {tieneReserva && <span>Le recordamos que usted <Link to="/detalles"> ya posee una bici reservada! </Link></span>}
+      {tieneReserva && <span style={{fontSize:"40px"}}>Le recordamos que usted <Link to="/detalles"> ya posee una bici reservada! </Link></span>}
     </div>
   )
 }

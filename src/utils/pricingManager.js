@@ -6,7 +6,7 @@ export const getBasePrice = () => {
 
 
 const calculateDayCost = (basePrice, days, baseDays) => {
-    const baseACobrar = basePrice * baseDays;
+    const baseACobrar = basePrice * days;
 
     if(days > baseDays) {
         const resto = days - baseDays;
@@ -23,10 +23,12 @@ export const calculateRentPrice = (type, days) => {
         case "electrica":
             return basePrice * days
         case "normal":
-            //El coste del alquiler será el precio base por los primeros 3 días y después el precio base por cada día extra
+            //El coste del alquiler será el precio base por los primeros 3 días 
+            // y después el precio base por cada día extra
             return calculateDayCost(basePrice, days, 3)
         case "antigua":
-            // El coste del alquiler será el precio base por los primeros 5 días y después el precio base por cada día extra.
+            // El coste del alquiler será el precio base por los primeros 5 días 
+            // y después el precio base por cada día extra.
             return calculateDayCost(basePrice, days, 5)
         default:
             return basePrice

@@ -19,8 +19,17 @@ export default function RentForm() {
         e.preventDefault()
         const data = getValues();
 
+        // aqui podríamos realizar las validaciones que consideremos necesarias...
+        if(data.telefono.length > 15) {
+            alert("El telefono es invalido.");
+            return;
+        }
+
+        if(parseInt(data.diasReserva) > 30) {
+            alert("Ingresa una cantidad menor a 30 dias de reserva.");
+            return;
+        }
         data.fechaInicio = startDate;
-        // aqui podríamos realizar las validaciones que consideremos necesarias.
         setOpenModal(true);
         setFormData(data);
     }; 
@@ -58,7 +67,6 @@ export default function RentForm() {
         isRequired: true,
         type:"number",
         placeholder: "2",
-        max:"365"
     },
     {
         id: "observaciones",
@@ -81,6 +89,7 @@ export default function RentForm() {
             type={field.type}
             required={field.isRequired}
             placeholder={field.placeholder}
+            inputProps={{ maxLength: 40 }}
             sx={{
                 ".MuiInputBase-input": {
                     borderRadius: "10px",

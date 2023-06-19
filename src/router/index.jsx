@@ -2,9 +2,11 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
+import ErrorPage from "./errorPage";
 import App from 'src/App'
 import RentFormPage from "src/pages/RentFormPage";
-import ErrorPage from "./errorPage";
+import SuccessPage from 'src/pages/SuccessPage';
+import DetallesPage from 'src/pages/DetallesPage';
 
 const router = createBrowserRouter([
     {
@@ -15,6 +17,16 @@ const router = createBrowserRouter([
     {
         path: "/alquiler/:id",
         element: <RentFormPage />,
+        errorElement: <ErrorPage />
+    },
+    {
+        path: "/success",
+        element: <SuccessPage />,
+        errorElement: <ErrorPage />
+    },
+    {
+        path: "/detalles",
+        element: <DetallesPage />,
         errorElement: <ErrorPage />
     },
 ]);

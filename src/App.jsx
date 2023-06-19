@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
 import './App.css'
 import BicycleList from './pages/BicycleList'
 import {getBasePrice} from 'src/utils/pricingManager';
+import { Link } from 'react-router-dom';
 function App() {
 
   const date = new Date();
+  const tieneReserva = window.localStorage.getItem("reserva")
 
   return (
     <div className="App">
@@ -23,6 +26,7 @@ function App() {
         </div>
       </section>
 
+      {tieneReserva && <span>Le recordamos que usted <Link to="/detalles"> ya posee una bici reservada! </Link></span>}
     </div>
   )
 }

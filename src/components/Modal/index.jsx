@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import useBicycleStore from 'src/store/useBicycleStore';
 import { calculateRentPrice } from '../../utils/pricingManager';
+import { useNavigate } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -24,8 +25,17 @@ export default function BasicModal({open, handleClose, formData}) {
   
     const {selectedBicycle} = useBicycleStore();
 
+    const navigate = useNavigate();
+
     const handleConfirm = () => {
-    
+
+      const saveInfo = {
+        name: selectedBicycle.nombre,
+        type: selectedBicycle.type,
+        price: calculateRentPrice(selectedBicycle.type, formData.diasReserva)
+      }
+      window.localStorage.setItem("reserva", JSON.stringify(saveInfo));
+      navigate("/success")
     }
 
     return (

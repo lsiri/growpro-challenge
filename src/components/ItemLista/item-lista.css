@@ -1,0 +1,17 @@
+.lista-block {
+    background-color: #F2F2F2;
+    color: black;
+    border: 1px solid white;
+}
+
+.lista-block-p {
+    background-color: #F2F2F2;
+    color: black;
+    border: 1px solid white;
+}
+
+.lista-block:hover {
+    cursor: pointer;
+    color:black;
+    border: 1px solid black;
+}

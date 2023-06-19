@@ -1,0 +1,58 @@
+{
+    "data": [
+        {
+            "id": "el1",
+            "nombre": "Bicicleta eléctrica 1",
+            "img": "/electrica.jpg",
+            "type": "electrica"
+        },
+        {
+            "id": "el2",
+            "nombre": "Bicicleta eléctrica 2",
+            "img": "/electrica.jpg",
+            "type": "electrica"
+        },
+        {
+            "id": "el3",
+            "nombre": "Bicicleta eléctrica 3",
+            "img": "/electrica.jpg",
+            "type": "electrica"
+        },
+        {
+            "id": "nor1",
+            "nombre": "Bicicleta normal 1",
+            "img": "/clasica.jpg",
+            "type": "normal"
+        },
+        {
+            "id": "nor2",
+            "nombre": "Bicicleta normal 2",
+            "img": "/clasica.jpg",
+            "type": "normal"
+        },
+        {
+            "id": "nor3",
+            "nombre": "Bicicleta normal 3",
+            "img": "/clasica.jpg",
+            "type": "normal"
+        },
+        {
+            "id": "ant1",
+            "nombre": "Bicicleta antigua 1",
+            "img": "/antigua.jpg",
+            "type": "antigua"
+        },
+        {
+            "id": "ant2",
+            "nombre": "Bicicleta antigua 2",
+            "img": "/antigua.jpg",
+            "type": "antigua"
+        },
+        {
+            "id": "ant3",
+            "nombre": "Bicicleta antigua 3",
+            "img": "/antigua.jpg",
+            "type": "antigua"
+        }
+    ]
+}
